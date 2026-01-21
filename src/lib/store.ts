@@ -9,7 +9,7 @@ import {
 } from './data';
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.htufolio.com';
-const API_BASE_URL_ROUTING = 'https://master.d2hh6o27ll1srl.amplifyapp.com/';
+// const API_BASE_URL_ROUTING = 'https://master.d2hh6o27ll1srl.amplifyapp.com/';
 // const API_BASE_URL_ROUTING = 'http://localhost:3001/';
 
 interface AppState {
@@ -40,7 +40,7 @@ function getBaseUrl(): string {
 
 // --- Course Management ---
 export async function getCourses(): Promise<Course[]> {
-  const url = `${API_BASE_URL_ROUTING}api/course`;
+  const url = `${API_BASE_URL}api/course`;
   console.log(getBaseUrl())
   try {
 
@@ -244,7 +244,7 @@ export async function getScheduledEntries(): Promise<ScheduleEntry[]> {
   }
 }
 export async function getFullScheduledEntries(): Promise<FullScheduleEntry[]> {
-  const url = `${API_BASE_URL_ROUTING}api/schedules`;
+  const url = `${API_BASE_URL}api/schedules`;
 
   try {
     const response = await fetch(url, {
@@ -519,7 +519,7 @@ export async function deleteInstructor(id: string): Promise<boolean> {
 
 // --- TA Management ---
 export async function getTAs(): Promise<TA[]> {
-  const url = `${API_BASE_URL_ROUTING}api/ta`;
+  const url = `${API_BASE_URL}api/ta`;
 
   try {
     const response = await fetch(url, {
@@ -553,7 +553,7 @@ export async function getTAs(): Promise<TA[]> {
       console.warn(
           `[FETCH FAILED] Could not connect to the backend API for getTAs at ${url}. ` +
           `Please ensure your backend server is running and accessible. ` +
-          `API_BASE_URL_ROUTING is: ${API_BASE_URL_ROUTING}. Details: ${typedError.message}`
+          `API_BASE_URL_ROUTING is: ${API_BASE_URL}. Details: ${typedError.message}`
       );
     } else {
       console.warn(`Error in getTAs when fetching from ${url}: ${typedError.message}`);
