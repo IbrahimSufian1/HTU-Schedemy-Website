@@ -15,7 +15,7 @@ app.use(cors()); // Enable CORS for all routes (configure specific origins in pr
 app.use(express.json()); // Parse JSON request bodies
 
 // Routes
-app.use('/api/courses', courseRoutes);
+app.use('/courses', courseRoutes);
 // app.use('/api/instructors', instructorRoutes);
 // ... and so on for other entities
 
@@ -30,5 +30,5 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(PORT, () => {
-  console.log(\`Backend server is running on http://localhost:\${PORT}\`);
+  console.log(`Backend server is running on http://localhost:${PORT}`);
 });

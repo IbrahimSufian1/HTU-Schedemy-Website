@@ -285,7 +285,7 @@ export function EditableScheduledClassesTable({
         timeSlotId: entry.timeSlotId || entry.timeSlot?.id
       }));
 
-      const response = await fetch('/api/schedules', {
+      const response = await fetch('/schedules', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -201,7 +201,7 @@ export function AddScheduleEntryForm({
           <SelectContent className="max-h-60"> {/* Added max-h for long lists */}
             {timeSlots.map((slot) => (
               <SelectItem key={slot.id} value={slot.id}>
-                {slot.display}
+                {slot.startTime} - {slot.endTime}
               </SelectItem>
             ))}
           </SelectContent>

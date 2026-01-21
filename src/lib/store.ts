@@ -40,7 +40,7 @@ function getBaseUrl(): string {
 
 // --- Course Management ---
 export async function getCourses(): Promise<Course[]> {
-  const url = `${API_BASE_URL}api/course`;
+  const url = `${API_BASE_URL}/courses`;
   console.log(getBaseUrl())
   try {
 
@@ -244,7 +244,7 @@ export async function getScheduledEntries(): Promise<ScheduleEntry[]> {
   }
 }
 export async function getFullScheduledEntries(): Promise<FullScheduleEntry[]> {
-  const url = `${API_BASE_URL}api/schedules`;
+  const url = `${API_BASE_URL}/schedules`;
 
   try {
     const response = await fetch(url, {
@@ -345,7 +345,7 @@ export async function getFullScheduledEntries(): Promise<FullScheduleEntry[]> {
 
 
 export async function addScheduleEntry(entry: Omit<ScheduleEntry, 'id'>): Promise<ScheduleEntry> {
-  const url = '/api/schedules'; // Call internal API route
+  const url = '/schedules'; // Call internal API route
   try {
     const apiEntry = {
       course: entry.courseId ? { id: parseInt(entry.courseId) } : null,
@@ -519,7 +519,7 @@ export async function deleteInstructor(id: string): Promise<boolean> {
 
 // --- TA Management ---
 export async function getTAs(): Promise<TA[]> {
-  const url = `${API_BASE_URL}api/ta`;
+  const url = `${API_BASE_URL}/ta`;
 
   try {
     const response = await fetch(url, {
